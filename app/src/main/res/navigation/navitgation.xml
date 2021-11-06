@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navitgation"
+    app:startDestination="@+id/findrestuarunt">
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.interview.login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/logout"
+        android:name="com.example.interview.logout"
+        android:label="fragment_logout2"
+        tools:layout="@layout/fragment_logout2" />
+    <fragment
+        android:id="@+id/checkorder"
+        android:name="com.example.interview.checkorder"
+        android:label="fragment_checkorder"
+        tools:layout="@layout/fragment_checkorder" />
+    <fragment
+        android:id="@+id/findrestuarunt"
+        android:name="com.example.interview.findrestuarunt"
+        android:label="fragment_findrestuarunt"
+        tools:layout="@layout/fragment_findrestuarunt" />
+</navigation>
