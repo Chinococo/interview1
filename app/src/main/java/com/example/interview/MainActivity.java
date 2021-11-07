@@ -9,6 +9,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,11 +24,12 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    ImageView imageView ;
+public class MainActivity extends AppCompatActivity  {
+    ImageView imageView;
     DrawerLayout drawerLayout;
     SharedPreferences sb;
     Boolean signin = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,33 +38,27 @@ public class MainActivity extends AppCompatActivity {
         putrestuarnt();
         Readpreaccount();
     }
-    void Readpreaccount()
-    {
-        sb = getSharedPreferences("account",MODE_WORLD_READABLE);
-        String account = sb.getString("account","-1");
-        String email   = sb.getString("email","-1");
-        signin =  account.equals("-1") || email.equals("-1");
-        if(signin)
-        {
-            findViewById(R.id.layoutlogin).setVisibility(View.INVISIBLE);
-            TextView textView1 = findViewById(R.id.nowaccountname);
-            textView1.setText("name:"+account);
-            TextView textView2 = findViewById(R.id.nowaacountemail);
-            textView2.setText("name:"+email);
-        }
+
+    void Readpreaccount() {
+        sb = getSharedPreferences("account", MODE_WORLD_READABLE);
+        String account = sb.getString("account", "-1");
+        String email = sb.getString("email", "-1");
+        signin = account.equals("-1") || email.equals("-1");
+
+
     }
-    void putrestuarnt()
-    {
+
+    void putrestuarnt() {
         ArrayList<Item> data = new ArrayList<>();
-        for(int i=0;i<100;i++)
-            data.add(new Item("item"+i,"adderss"+i));
-        Log.e("TAG",data.toString());
+        for (int i = 0; i < 100; i++)
+            data.add(new Item("item" + i, "adderss" + i));
+        Log.e("TAG", data.toString());
         ListView listView = findViewById(R.id.resturant);
-        CustomAdapter adapter = new CustomAdapter(this,R.layout.resturant_item,data);
+        CustomAdapter adapter = new CustomAdapter(this, R.layout.resturant_item, data);
         listView.setAdapter(adapter);
     }
-    void buildNavgation()
-    {
+
+    void buildNavgation() {
         drawerLayout = findViewById(R.id.drawlayout);
         findViewById(R.id.menubtn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         });
         NavigationView navigationView = findViewById(R.id.navgationview);
         navigationView.setItemIconTintList(null);
-        NavController navController = Navigation.findNavController(this,R.id.fragmentlayout);
-        NavigationUI.setupWithNavController(navigationView,navController);
+        NavController navController = Navigation.findNavController(this, R.id.fragmentlayout);
+        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
 }

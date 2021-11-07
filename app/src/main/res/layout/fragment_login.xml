@@ -10,12 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutlogin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#594F9182">
 
         <EditText
             android:id="@+id/EdittextPassword"
             android:layout_width="139dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/EditTextlogin"
@@ -50,14 +51,12 @@
 
         <EditText
             android:id="@+id/EditTextlogin"
-            android:layout_width="139dp"
-            android:layout_height="0dp"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/textView6"
-            app:layout_constraintVertical_bias="0.0"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <Button
@@ -66,21 +65,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="92dp"
             android:layout_marginEnd="108dp"
-            android:text="登入"
+            android:text="登入/建立"
             app:layout_constraintEnd_toEndOf="@+id/EdittextPassword"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="沒有帳號，註冊一個"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.45"
-            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

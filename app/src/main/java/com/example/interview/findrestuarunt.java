@@ -1,12 +1,18 @@
 package com.example.interview;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +65,25 @@ public class findrestuarunt extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_findrestuarunt, container, false);
+        View view = inflater.inflate(R.layout.fragment_findrestuarunt, container, false);
+        ArrayList<Item> data = new ArrayList<>();
+        for (int i = 0; i < 100; i++)
+            data.add(new Item("item" + i, "adderss" + i));
+        Log.e("TAG", data.toString());
+        ListView listView = view.findViewById(R.id.resturant);
+        CustomAdapter adapter = new CustomAdapter(getActivity(), R.layout.resturant_item, data);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.putExtra("restuarantName",data.get(position).name);
+                intent.putExtra("restuarantadders",data.get(position).adders);
+                intent.setClass(getContext(),order.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
+
 }

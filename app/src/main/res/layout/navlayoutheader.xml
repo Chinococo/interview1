@@ -41,6 +41,7 @@
         android:layout_marginBottom="5dp"
         android:text="email:none"
         android:textColor="#FFFFFF"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/nowaccountname"
         app:layout_constraintTop_toBottomOf="@+id/nowaccountname"
