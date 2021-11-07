@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/activity_order.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/fragment_checkorder.xml" value="0.3875" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/fragment_checkorderfragment.xml" value="0.3875" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/fragment_findrestuarunt.xml" value="0.41719342604298354" />
@@ -14,6 +15,7 @@
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/fragment_logout2.xml" value="0.3763440860215054" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/fragment_resturantitem.xml" value="0.3875" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/makeaccount.xml" value="0.22" />
+        <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/menu_item.xml" value="0.5" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/navlayout.xml" value="0.1" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/navlayoutheader.xml" value="0.9502762430939227" />
         <entry key="..\:/Users/garyl/AndroidStudioProjects/interview/app/src/main/res/layout/resturant_item.xml" value="0.16666666666666666" />

@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity  {
     DrawerLayout drawerLayout;
     SharedPreferences sb;
     Boolean signin = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

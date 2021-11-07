@@ -7,29 +7,33 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
 
-public class CustomAdapter extends ArrayAdapter {
-    List<Item> arrayList;
+public class CustomAdapter2 extends ArrayAdapter {
+    List<HashMap<String,String>> arrayList;
     Context context;
     private int resourceId;
-    public CustomAdapter(Context context, int textViewResourceId, List<Item> objects){
-        super(context,textViewResourceId,objects);
+
+    public CustomAdapter2(Context context1, int textViewResourceId, List<HashMap<String,String>> objects){
+        super(context1,textViewResourceId,objects);
         arrayList = objects;
         resourceId = textViewResourceId;
-        context = context;
+        context = context1;
+
     }
 
     @Override
     public View getView(int position,View convertView,ViewGroup parent){
-        Item data= arrayList.get(position);
+        HashMap<String,String> data= arrayList.get(position);
         View view= LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
         //ImageView Image = (ImageView)view.findViewById(R.id.fruit_image);
-        TextView name=(TextView) view.findViewById(R.id.itemName);
-        TextView adderss=(TextView) view.findViewById(R.id.ItemName);
+        TextView name=(TextView) view.findViewById(R.id.ItemName);
+        TextView price=(TextView) view.findViewById(R.id.ItemPrice);
         //Image.setImageResource(fruit.getImageId());
-        name.setText(data.getName());
-        adderss.setText(data.getAdders());
+        System.out.println(data.toString());
+        name.setText("商品:"+data.get("itemName"));
+        price.setText("價格:"+data.get("itemPrice"));
         return view;
     }
 }

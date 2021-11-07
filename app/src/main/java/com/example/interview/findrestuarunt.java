@@ -3,6 +3,7 @@ package com.example.interview;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -12,6 +13,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 /**
@@ -20,12 +27,12 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class findrestuarunt extends Fragment {
-
+DatabaseReference db = FirebaseDatabase.getInstance().getReference();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    ArrayList<Item> data = new ArrayList<>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -66,24 +73,39 @@ public class findrestuarunt extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_findrestuarunt, container, false);
-        ArrayList<Item> data = new ArrayList<>();
-        for (int i = 0; i < 100; i++)
-            data.add(new Item("item" + i, "adderss" + i));
-        Log.e("TAG", data.toString());
         ListView listView = view.findViewById(R.id.resturant);
-        CustomAdapter adapter = new CustomAdapter(getActivity(), R.layout.resturant_item, data);
-        listView.setAdapter(adapter);
+        db.child("Allrestaurant").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue()!=null) {
+                    ArrayList<String> tt = (ArrayList<String>) snapshot.getValue();
+                    for(int i=0;i<tt.size();i++)
+                    data.add(new Item(tt.get(i),"none"));
+                }
+                CustomAdapter adapter = new CustomAdapter(getActivity(), R.layout.resturant_item, data);
+                listView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        Log.e("TAG", data.toString());
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent();
                 intent.putExtra("restuarantName",data.get(position).name);
-                intent.putExtra("restuarantadders",data.get(position).adders);
+                //intent.putExtra("restuarantadders",data.get(position).adders);
                 intent.setClass(getContext(),order.class);
                 startActivity(intent);
             }
         });
         return view;
     }
+
 
 }
