@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -37,6 +38,7 @@ public class order extends AppCompatActivity {
     public ArrayList<HashMap<String,String>> all_order = new ArrayList<>();
     ListView listview;
     int sum;
+    long first=0;
     Button button;
     ArrayList<HashMap<String,String>> submitdata;
     DatabaseReference db = FirebaseDatabase.getInstance().getReference();
@@ -127,6 +129,19 @@ public class order extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
+    }
+    @Override
+    public void onBackPressed()  //雙擊退出事件
+    {
+        if (System.currentTimeMillis() - first < 2000) {
+            Intent intent = new Intent();
+            intent.setClass(order.this,MainActivity.class);
+            startActivity(intent);
+            this.finish();
+        } else {
+            Toast.makeText(this,"再按一次退出",Toast.LENGTH_LONG).show();
+            first = System.currentTimeMillis();
+        }
     }
 
 }

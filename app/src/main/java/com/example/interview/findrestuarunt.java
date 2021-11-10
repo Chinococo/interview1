@@ -102,6 +102,7 @@ DatabaseReference db = FirebaseDatabase.getInstance().getReference();
                 //intent.putExtra("restuarantadders",data.get(position).adders);
                 intent.setClass(getContext(),order.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
         return view;
